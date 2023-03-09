@@ -2,6 +2,12 @@
 
 using namespace std;
 
+/*
+public - доступен всем 
+private - доступен внутри и друзьями класса или функций
+protected - доступен внутри и друзьями класса или функций и в т.ч наследниками
+
+*/
 class Animal {
 protected:
     string name;
@@ -30,6 +36,12 @@ public:
     void meal() {
         cout << "ate "<<this->food << endl;;
     }
+    void meal(string unusualFood) {
+        cout << "ate " << unusualFood << endl;;
+    }
+    void meal(short time) {
+        cout << "ate " << this->food <<" " << time << " times" << endl;;
+    }
     void makeASound()
     {
         cout << "says: " << this->sound << endl;;
@@ -55,7 +67,8 @@ public:
     {
         cout << "набрал воды в хобот" << endl;
     }
-    ~Elephant() {
+    ~Elephant() 
+    {
         cout << "was killed" << endl;
     }
 };
@@ -89,6 +102,8 @@ int main()
     cow->breathe();
     cow->milk();
     cow->meal();
+    cow->meal("apple");
+    cow->meal(6);
     eleph->makeASound();
     cow->makeASound();
     eleph->breathe();
